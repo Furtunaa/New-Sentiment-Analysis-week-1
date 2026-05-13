@@ -1,4 +1,5 @@
 # 📈 Predicting Price Moves with News Sentiment
+
 ### Nova Financial Solutions | Data Analytics Pipeline
 
 [![CI/CD](https://github.com/YOUR_USERNAME/news-sentiment-analysis/actions/workflows/unittests.yml/badge.svg)](https://github.com/YOUR_USERNAME/news-sentiment-analysis/actions)
@@ -7,17 +8,15 @@
 
 ---
 
-## 🎯 Business Objective
+🎯 Project Goal
 
-Financial news is relentless — thousands of headlines published daily. Some drive meaningful stock price reactions; others are noise. This project builds a rigorous analytical pipeline that:
+Financial markets generate an enormous volume of news every day. While some headlines influence stock prices significantly, many have little or no impact. This project develops a complete analytical workflow designed to:
 
-1. **Quantifies sentiment** in financial news headlines using NLP (VADER)
-2. **Computes technical indicators** from historical price data (TA-Lib)
-3. **Measures the statistical relationship** between sentiment and daily returns (Pearson correlation)
+Analyze sentiment in financial headlines using NLP techniques with VADER
+Generate technical indicators from historical stock market data using TA-Lib
+Evaluate correlations between sentiment scores and stock returns through Pearson correlation analysis
 
-The result: actionable investment strategy recommendations for Nova Financial Solutions.
-
----
+## The pipeline aims to provide data-driven insights and support smarter investment decisions for Nova Financial Solutions.
 
 ## 📁 Project Structure
 
@@ -56,12 +55,14 @@ news-sentiment-analysis/
 ## 🚀 Quick Start
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/YOUR_USERNAME/news-sentiment-analysis.git
 cd news-sentiment-analysis
 ```
 
 ### 2. Create virtual environment
+
 ```bash
 python -m venv venv
 source venv/bin/activate        # Linux/macOS
@@ -69,45 +70,53 @@ source venv/bin/activate        # Linux/macOS
 ```
 
 ### 3. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 > **TA-Lib Note:** On Linux, install system dependency first:
+>
 > ```bash
 > sudo apt-get install libta-lib-dev   # Ubuntu/Debian
 > brew install ta-lib                   # macOS
 > ```
+>
 > On Windows, download the pre-built wheel from:
 > https://github.com/cgohlke/talib-build/releases
 
 ### 4. Download NLTK data
+
 ```bash
 python -c "import nltk; nltk.download('vader_lexicon')"
 ```
 
 ### 5. Download stock price data
+
 ```bash
 python scripts/data_loader.py
 ```
 
 ### 6. Launch Jupyter
+
 ```bash
 jupyter notebook notebooks/
 ```
 
 ---
 
-## 📊 Tasks Overview
+📊 Project Tasks
+Task 1 — Exploratory Data Analysis
 
-### Task 1 — EDA (`task-1` branch)
-**Notebook:** `notebooks/task1_eda.ipynb`
+Notebook: task1_eda.ipynb
 
-- Headline character length distribution
-- Publisher analysis + email domain extraction
-- Time series of news volume with spike detection
-- TF-IDF topic modeling (top 20 financial keywords)
-- Publication frequency heatmap (day × hour)
+Main analyses include:
+
+Distribution of headline lengths
+Publisher and email-domain analysis
+News publication trends over time
+TF-IDF keyword extraction
+Heatmaps showing publication frequency patterns
 
 **Key Visualizations:**
 | Figure | Description |
@@ -122,6 +131,7 @@ jupyter notebook notebooks/
 ---
 
 ### Task 2 — Technical Indicators (`task-2` branch)
+
 **Notebook:** `notebooks/task2_technical_indicators.ipynb`
 
 **TA-Lib Indicators:**
@@ -135,6 +145,7 @@ jupyter notebook notebooks/
 | ATR | 14 days | Volatility measure |
 
 **PyNance-equivalent Metrics:**
+
 - Sharpe Ratio (annualised)
 - Sortino Ratio
 - Maximum Drawdown
@@ -144,6 +155,7 @@ jupyter notebook notebooks/
 ---
 
 ### Task 3 — Correlation Analysis (`task-3` branch)
+
 **Notebook:** `notebooks/task3_correlation_analysis.ipynb`
 
 - VADER sentiment scoring for all headlines
@@ -163,6 +175,7 @@ pytest tests/ -v --cov=src
 ```
 
 Test coverage includes:
+
 - EDA preprocessing and edge cases (null/empty headlines)
 - VADER sentiment score range validation
 - Technical indicator column presence and RSI bounds
@@ -181,6 +194,7 @@ main
 ```
 
 **Conventional Commits format:**
+
 ```
 feat(eda): add TF-IDF topic modeling and publisher analysis
 feat(indicators): compute SMA, EMA, RSI, MACD with TA-Lib
@@ -194,27 +208,27 @@ test(eda): add unit tests for headline length and publisher extraction
 
 ## 📚 Data Sources
 
-| Dataset | Source | Description |
-|---------|--------|-------------|
-| FNSPID | Provided | Financial news with headline, publisher, date, stock |
+| Dataset    | Source                                             | Description                                              |
+| ---------- | -------------------------------------------------- | -------------------------------------------------------- |
+| FNSPID     | Provided                                           | Financial news with headline, publisher, date, stock     |
 | Price Data | [yfinance](https://github.com/ranaroussi/yfinance) | Daily OHLCV for AAPL, AMZN, GOOG, META, MSFT, NVDA, TSLA |
 
 ---
 
 ## 🔧 Key Dependencies
 
-| Library | Version | Purpose |
-|---------|---------|---------|
-| pandas | 2.2.2 | Data manipulation |
-| numpy | 1.26.4 | Numerical computing |
-| matplotlib | 3.9.0 | Visualizations |
-| seaborn | 0.13.2 | Statistical plots |
-| yfinance | 0.2.40 | Stock data download |
-| TA-Lib | 0.4.28 | Technical indicators |
-| vaderSentiment | 3.3.1 | NLP sentiment scoring |
-| nltk | 3.8.1 | NLP toolkit |
-| scikit-learn | 1.5.0 | TF-IDF vectorizer |
-| scipy | 1.13.1 | Pearson correlation |
+| Library        | Version | Purpose               |
+| -------------- | ------- | --------------------- |
+| pandas         | 2.2.2   | Data manipulation     |
+| numpy          | 1.26.4  | Numerical computing   |
+| matplotlib     | 3.9.0   | Visualizations        |
+| seaborn        | 0.13.2  | Statistical plots     |
+| yfinance       | 0.2.40  | Stock data download   |
+| TA-Lib         | 0.4.28  | Technical indicators  |
+| vaderSentiment | 3.3.1   | NLP sentiment scoring |
+| nltk           | 3.8.1   | NLP toolkit           |
+| scikit-learn   | 1.5.0   | TF-IDF vectorizer     |
+| scipy          | 1.13.1  | Pearson correlation   |
 
 ---
 
@@ -230,13 +244,14 @@ test(eda): add unit tests for headline length and publisher extraction
 
 ## 👥 Team
 
-| Role | Name |
-|------|------|
-| Team Facilitator | Kerod |
+| Role             | Name     |
+| ---------------- | -------- |
+| Team Facilitator | Kerod    |
 | Team Facilitator | Mahbubah |
-| Team Facilitator | Feven |
+| Team Facilitator | Feven    |
 
 **Submission Deadlines:**
+
 - Interim: Sunday, 10 May 2026 — 8:00 PM UTC
 - Final: Tuesday, 12 May 2026 — 8:00 PM UTC
 
