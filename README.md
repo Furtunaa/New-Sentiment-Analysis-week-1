@@ -57,7 +57,7 @@ news-sentiment-analysis/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/news-sentiment-analysis.git
+git clone [https://github.com/YOUR_USERNAME/news-sentiment-analysis.git](https://github.com/Furtunaa/New-Sentiment-Analysis-week-1.git)
 cd news-sentiment-analysis
 ```
 
